@@ -1,8 +1,16 @@
 // Pong Game in JavaScript
 
 // Set up the canvas
-const canvas = document.getElementById('pong');
+const canvas = document.getElementById('pongCanvas');
 const context = canvas.getContext('2d');
+
+// Get the displayed size of the canvas
+const displayWidth = canvas.clientWidth;
+const displayHeight = canvas.clientHeight;
+
+// Set the internal resolution (game logic uses this)
+canvas.width = displayWidth;
+canvas.height = displayHeight;
 
 // Create the paddle
 const paddleWidth = 10, paddleHeight = 100;

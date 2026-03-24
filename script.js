@@ -12,6 +12,24 @@ const displayHeight = canvas.clientHeight;
 canvas.width = displayWidth;
 canvas.height = displayHeight;
 
+// Display score
+setInterval(() => {
+    console.log(`Player: ${playerScore} - Computer: ${computerScore}`);
+}, 1000);
+// Update score display
+function updateScore() {
+    document.getElementById('playerScore').textContent = playerScore;
+    document.getElementById('computerScore').textContent = computerScore;
+}
+
+// Call updateScore whenever the ball is reset
+function resetBall() {
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    ball.dx = -ball.dx;
+    ball.dy = 4 * (Math.random() < 0.5 ? 1 : -1);
+    updateScore();
+}
 // Create the paddle
 const paddleWidth = 10, paddleHeight = 100;
 let player = { x: 0, y: canvas.height / 2 - paddleHeight / 2, width: paddleWidth, height: paddleHeight, color: '#00f', dy: 0 };
@@ -134,21 +152,4 @@ document.addEventListener('keyup', stopControl);
 // Start the game
 gameLoop();
 
-// Display score
-setInterval(() => {
-    console.log(`Player: ${playerScore} - Computer: ${computerScore}`);
-}, 1000);
-// Update score display
-function updateScore() {
-    document.getElementById('playerScore').textContent = playerScore;
-    document.getElementById('computerScore').textContent = computerScore;
-}
 
-// Call updateScore whenever the ball is reset
-function resetBall() {
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
-    ball.dx = -ball.dx;
-    ball.dy = 4 * (Math.random() < 0.5 ? 1 : -1);
-    updateScore();
-}

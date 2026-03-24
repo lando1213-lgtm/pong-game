@@ -130,3 +130,17 @@ gameLoop();
 setInterval(() => {
     console.log(`Player: ${playerScore} - Computer: ${computerScore}`);
 }, 1000);
+// Update score display
+function updateScore() {
+    document.getElementById('playerScore').textContent = playerScore;
+    document.getElementById('computerScore').textContent = computerScore;
+}
+
+// Call updateScore whenever the ball is reset
+function resetBall() {
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    ball.dx = -ball.dx;
+    ball.dy = 4 * (Math.random() < 0.5 ? 1 : -1);
+    updateScore();
+}

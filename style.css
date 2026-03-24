@@ -1,0 +1,22 @@
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+canvas {
+    border: 1px solid #fff;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 24px;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    padding: 0 20px;
+}
